@@ -1,11 +1,12 @@
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
+import Header from "@/components/hero/Header";
+import Hero from "@/components/hero/Hero";
 import Image from "next/image";
 
 export default function Home() {
   return (
     <>
-      <Header />
+      <Hero />
       <Footer />
     </>
   );

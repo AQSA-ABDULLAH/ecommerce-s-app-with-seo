@@ -4,17 +4,16 @@ import React, { useState, useEffect } from "react";
 import Header from "./Header";
 
 const images = [
-  "/assets/shopping-image.jpg", // Make sure this path is correct
+  "/assets/shopping-image.jpg",
 ];
 
 function Hero() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Change the background image every few seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000); // Change every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);

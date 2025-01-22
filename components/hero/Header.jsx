@@ -2,12 +2,13 @@ import React from 'react';
 
 function Header() {
   return (
-    <div className="mx-[16px] bg-[#DA003785] rounded-[15px] flex justify-between items-center py-[8px] px-[10px]">
+    <div className="mx-[83px] bg-[#DA003785] rounded-[15px] flex justify-between items-center py-[4px] px-[10px]">
       <a href="/" className="text-inherit decoration-inherit">
-        <div className="flex gap-[0.25rem]">
+        <div className="flex gap-[0.25rem] items-center">
           <img
             alt="Logo"
             src="/assets/logo.webp"
+            className='w-[40px] h-[43px]'
           />
           <h2 className="text-[36px] text-[#EDEDED]">NC</h2>
         </div>

@@ -11,6 +11,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        style: ["ui-sans-serif", "system-ui"],
+      },
     },
   },
   plugins: [],

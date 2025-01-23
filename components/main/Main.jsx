@@ -28,9 +28,9 @@ function Main() {
   ];
 
   return (
-    <div className="bg-[#171717] py-[128px]">
+    <div className="bg-[#171717] py-[128px] font-style">
       <div className="mx-[283px] px-[10px]">
-        <h2 className="text-[36px] mb-[64px] uppercase text-[#EDEDED]">
+        <h2 className="text-[36px] mb-[64px] uppercase text-[#EDEDED] font-bold">
           Featured <span className="text-[#DA0037]">ITEMS</span>
         </h2>
         {sections.map((section, index) => (

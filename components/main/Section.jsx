@@ -4,7 +4,7 @@ import ProductDetails from "./ProductDetails";
 function Section({ image, title, description, price, reverse }) {
   return (
     <div
-      className={`flex flex-col lg:flex-row gap-8 mt-[56px] items-start text-[#EDEDED] font-sans ${
+      className={`flex flex-col lg:flex-row gap-8 mt-[56px] items-start text-[#EDEDED] font-style ${
         reverse ? "lg:flex-row-reverse" : ""
       }`}
     >

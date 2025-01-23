@@ -1,27 +1,26 @@
 import React from "react";
-import ActionButtons from "../main/ActionButtons";
 
-function ProductCard() {
+function ProductCard({ product }) {
   return (
     <div className="bg-[#444444] rounded-[16px] text-[#FFFFFF] overflow-hidden font-style">
       <div className="h-[300px]">
         <img
-          alt="Essence Mascara Lash Princess"
-          src="https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
+          alt={product.title}
+          src={product.thumbnail}
           className="w-[100%] h-[100%] object-cover"
         />
       </div>
       <div className="mt-[24px] p-[16px]">
         <div className="relative">
-          <h2 className="text-[30px]">Essence Mascara Lash</h2>
+          <h2 className="text-[30px] line-clamp-1">{product.title}</h2>
           <div className="overlay-grad"></div>
-          <p className="pt-[8px] font-[16px] text-[#FFFFFF]">
-            The Essence Mascara Lash Princess is a popular mas ...
+          <p className="pt-[8px] font-[16px] text-[#FFFFFF] line-clamp-2">
+            {product.description}
           </p>
           <span className="text-[#DA0037] text-[16px] font-semibold">
             read more
           </span>
-          <p className="text-[24px] text-[#DA0037] font-bold">$9.99</p>
+          <p className="text-[24px] text-[#DA0037] font-bold">${product.price}</p>
           <div className="mt-[12px] pt-[16px]">
             <button
               type="button"
@@ -49,3 +48,4 @@ function ProductCard() {
 }
 
 export default ProductCard;
+

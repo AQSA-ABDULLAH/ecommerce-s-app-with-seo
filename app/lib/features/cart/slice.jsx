@@ -1,7 +1,7 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
-  cart: [],
+  cart: [{id: 1, text: 'Hello'}],
 };
 
 export const cartSlice = createSlice({

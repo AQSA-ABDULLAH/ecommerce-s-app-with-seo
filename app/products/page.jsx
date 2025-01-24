@@ -34,9 +34,9 @@ const Page = () => {
           {products.map((product) => (
             <Link
               key={product.id}
-              href={`/products/${product.id}`} // Navigate to the product detail page
+              href={`/products/${products.id}`}
             >
-              <ProductCard product={product} /> {/* Pass product as prop */}
+              <ProductCard product={product} />
             </Link>
           ))}
         </div>

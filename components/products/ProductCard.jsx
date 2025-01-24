@@ -1,6 +1,16 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "@/app/lib/features/cart/slice";
 
 function ProductCard({ product }) {
+  const dispatch = useDispatch ();
+
+  const addProduct = (e) => {
+    e.preventDefault()
+
+    dispatch(addToCart(input))
+    setInput("")
+  }
   return (
     <div className="bg-[#444444] rounded-[16px] text-[#FFFFFF] overflow-hidden font-style">
       <div className="h-[300px]">
@@ -24,6 +34,7 @@ function ProductCard({ product }) {
           <div className="mt-[12px] pt-[16px]">
             <button
               type="button"
+              onClick={addProduct}
               className="bg-[#DA0037] w-full px-6 py-2 rounded-md flex justify-center items-center gap-2 hover:bg-primary-dark"
             >
               <svg

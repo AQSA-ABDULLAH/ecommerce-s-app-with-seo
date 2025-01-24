@@ -2,7 +2,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion"; // Import motion
+import { motion } from "framer-motion";
 
 async function fetchProductDetails(id) {
   const res = await fetch(`https://dummyjson.com/products/${id}`);

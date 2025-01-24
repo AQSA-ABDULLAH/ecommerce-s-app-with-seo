@@ -1,5 +1,5 @@
 // product/[id]/page.js
-"use client";  // Mark this component as client-side
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion"; // Import motion
@@ -60,5 +60,3 @@ const ProductDetail = ({ params }) => {
 };
 
 export default ProductDetail;
-
-

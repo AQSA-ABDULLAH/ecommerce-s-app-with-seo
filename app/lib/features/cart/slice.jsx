@@ -1,7 +1,7 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
-  cart: [{id: 1, text: 'Hello'}],
+  cart: [],
 };
 
 export const cartSlice = createSlice({
@@ -9,19 +9,18 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const cart = {
-        id: nanoid(),
-        text: action.payload,
+      const product = {
+        ...action.payload, // Spread the product object
+        id: nanoid(), // Add a unique ID for each cart item
       };
-      state.cart.push(cart)
+      state.cart.push(product);
     },
-    removeFormCart: (state, action) => {
-        state.cart = state.cart.filter((cart) => 
-        cart.id !== action.payload)
-    }
+    removeFromCart: (state, action) => {
+      state.cart = state.cart.filter((cartItem) => cartItem.id !== action.payload);
+    },
   },
 });
 
-export const {addToCart, removeFormCart} = cartSlice.actions;
+export const { addToCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

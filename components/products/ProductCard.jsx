@@ -3,14 +3,15 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "@/app/lib/features/cart/slice";
 
 function ProductCard({ product }) {
-  const dispatch = useDispatch ();
+  const dispatch = useDispatch();
 
   const addProduct = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    dispatch(addToCart(input))
-    setInput("")
-  }
+    // Dispatch the product to the store
+    dispatch(addToCart(product));
+  };
+
   return (
     <div className="bg-[#444444] rounded-[16px] text-[#FFFFFF] overflow-hidden font-style">
       <div className="h-[300px]">

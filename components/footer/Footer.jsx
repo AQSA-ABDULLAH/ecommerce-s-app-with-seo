@@ -2,7 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#000000CC] text-[#EDEDED]">
+    <footer className="bg-[#171717] text-[#EDEDED]">
+      <div className="bg-[#000000CC]">
       <div className="mx-[83px] px-[16px] py-[32px]">
         {/* Logo and Developer Info */}
         <a href="/" className="text-[#DA0037] text-[36px] font-bold">
@@ -88,6 +89,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
+      </div>
       </div>
     </footer>
   );

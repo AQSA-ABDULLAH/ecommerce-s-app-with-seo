@@ -14,7 +14,14 @@ export default {
       fontFamily: {
         style: ["ui-sans-serif", "system-ui"],
       },
+      clipPath: {
+        custom: "polygon(0 0, 100% 20%, 100% 100%, 0 80%)",
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography'),
+  ],
 };

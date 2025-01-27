@@ -34,7 +34,7 @@ function CartItems() {
             <div className="flex w-[100%] justify-between">
               <p>{item.price}</p>
               <button onClick={() => handleDelete(item.id)}>
-                <AiOutlineDelete className="text-red-500 cursor-pointer" />
+                <AiOutlineDelete className="cursor-pointer" />
               </button>
             </div>
           </div>

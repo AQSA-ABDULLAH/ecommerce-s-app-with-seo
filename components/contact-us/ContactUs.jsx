@@ -14,25 +14,25 @@ function ContactSection() {
           }}
         >
         {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/60 backdrop-blur-[3px] z-10"></div>
+        
 
         {/* Content Section */}
-        <div className="max-w-screen-lg mx-auto px-4 text-center relative z-20">
-          <div className="space-y-6">
-            <h2 className="text-4xl font-bold text-white">
-              Contact <span className="text-primary">US</span>
+        <div className="mx-[424px] px-[16px] text-center relative z-20">
+          <div className="text-[#EDEDED] font-style">
+            <h2 className="text-[36px] font-bold">
+              Contact <span className="text-[#DA0037]">US</span>
             </h2>
-            <p className="text-lg text-white opacity-80">
+            <p className="text-[16px] mt-[8px]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
               voluptatem consectetur eaque.
             </p>
-            <a href="/contact">
+            <a href="/contact" className="mt-[8px]">
               <button
                 type="button"
-                className="bg-primary text-white px-6 py-3 rounded-full flex items-center space-x-2 hover:bg-primary-dark"
+                className="bg-[#DA0037] px-[16px] py-[8px] mt-[32px] rounded-[4px] text-[16px] hover:bg-[#bd2a2a] cursor-pointer"
               >
+                <span className="flex items-center gap-2">
                 Info
-                <span className="flex items-center">
                   <svg
                     stroke="currentColor"
                     fill="currentColor"

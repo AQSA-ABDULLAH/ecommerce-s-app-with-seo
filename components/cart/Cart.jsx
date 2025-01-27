@@ -21,7 +21,7 @@ const Cart = () => {
           <div className="fixed top-0 left-0 w-screen h-screen bg-[#0000007A]"></div>
 
           {/* Cart Container */}
-          <div className="fixed right-0 top-0 bottom-0 w-1/4 text-white bg-[#444]">
+          <div className="fixed right-0 top-0 bottom-0 w-[23%] text-white bg-[#444]">
             {/* Header */}
             <div className="text-[20px] px-6 py-4 font-style flex justify-between">
               <header

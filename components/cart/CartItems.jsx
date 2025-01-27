@@ -1,6 +1,7 @@
 // CartItem.jsx
 import React from "react";
 import { useSelector } from "react-redux";
+import { AiOutlineDelete } from "react-icons/ai";
 
 function CartItems() {
   const cartItems = useSelector((state) => state.cart.cart); // Access the cart array
@@ -25,7 +26,7 @@ function CartItems() {
 
             <div className="flex w-[100%] justify-between">
                 <p>{item.price}</p>
-                <p>{item.price}</p>
+                <p><AiOutlineDelete /></p>
             </div>
           </div>
         ))

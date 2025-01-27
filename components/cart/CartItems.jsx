@@ -1,10 +1,17 @@
 // CartItem.jsx
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { AiOutlineDelete } from "react-icons/ai";
+import { removeFromCart } from "../../app/lib/features/cart/slice";
 
 function CartItems() {
   const cartItems = useSelector((state) => state.cart.cart); // Access the cart array
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(removeFromCart(id)); // Dispatch the action with the item's ID
+  };
+
   return (
     <div>
       {cartItems.length === 0 ? (
@@ -25,8 +32,10 @@ function CartItems() {
             </div>
 
             <div className="flex w-[100%] justify-between">
-                <p>{item.price}</p>
-                <p><AiOutlineDelete /></p>
+              <p>{item.price}</p>
+              <button onClick={() => handleDelete(item.id)}>
+                <AiOutlineDelete className="text-red-500 cursor-pointer" />
+              </button>
             </div>
           </div>
         ))

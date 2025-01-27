@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import Cart from "../cart/page";
+import Cart from "../cart/Cart";
 
 function Header() {
   const [showCart, setShowCart] = useState(false);

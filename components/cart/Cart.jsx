@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import CartItems from "./CartItems";
 
 const Cart = () => {
   // State to control sidebar visibility
@@ -35,7 +36,7 @@ const Cart = () => {
                 type="button"
                 aria-label="Close"
                 className="text-white"
-                onClick={closeSidebar} // Close the sidebar on click
+                onClick={closeSidebar}
               >
                 <svg
                   viewBox="0 0 24 24"
@@ -53,7 +54,7 @@ const Cart = () => {
 
             {/* Body */}
             <div className="px-6 py-2 flex-1 overflow-auto">
-              <h2 className="text-lg font-semibold">No Items in cart</h2>
+              <CartItems />
             </div>
 
             {/* Footer */}

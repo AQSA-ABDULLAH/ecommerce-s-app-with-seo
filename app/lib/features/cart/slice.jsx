@@ -1,7 +1,7 @@
 import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = {
-  cart: JSON.parse(localStorage.getItem("cart")) || [],
+  cart: typeof window !== "undefined" ? JSON.parse(localStorage.getItem("cart")) || [] : [],
 };
 
 export const cartSlice = createSlice({
@@ -14,11 +14,15 @@ export const cartSlice = createSlice({
         id: nanoid(),
       };
       state.cart.push(product);
-      localStorage.setItem("cart", JSON.stringify(state.cart));
+      if (typeof window !== "undefined") {
+        localStorage.setItem("cart", JSON.stringify(state.cart));
+      }
     },
     removeFromCart: (state, action) => {
       state.cart = state.cart.filter((cartItem) => cartItem.id !== action.payload);
-      localStorage.setItem("cart", JSON.stringify(state.cart));
+      if (typeof window !== "undefined") {
+        localStorage.setItem("cart", JSON.stringify(state.cart));
+      }
     },
   },
 });
@@ -26,4 +30,6 @@ export const cartSlice = createSlice({
 export const { addToCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
+
+
 

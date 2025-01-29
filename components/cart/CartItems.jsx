@@ -5,7 +5,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { removeFromCart } from "../../app/lib/features/cart/slice";
 
 function CartItems() {
-  const cartItems = useSelector((state) => state.cart.cart);
+  const cartItems = useSelector((state) => state.cart.cart); 
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
@@ -18,7 +18,7 @@ function CartItems() {
         <h2 className="text-lg font-semibold">No Items in Cart</h2>
       ) : (
         cartItems.map((item) => (
-          <div key={item.id} className="py-4 border-b border-gray-300">
+          <div key={item.id} className="my-[16px] rounded-[10px] p-[10px] bg-[#00000041] text-[#EDEDED] font-style">
             <div className="flex gap-8 items-center">
               {item.images?.map((image, index) => (
                 <img
@@ -28,11 +28,14 @@ function CartItems() {
                   className="w-14 h-14 rounded-md"
                 />
               ))}
-              <h3 className="font-semibold">{item.title}</h3>
+              <div>
+              <h3 className="font-semibold text-[12.8px]">{item.title}</h3>
+              <p className="text-[16px] text-[#DA0037] font-bold mt-[8px]">$ {item.price}</p>
+              </div>
             </div>
 
-            <div className="flex w-[100%] justify-between">
-              <p>{item.price}</p>
+            <div className="flex w-[100%] justify-end mt-[8px]">
+             
               <button onClick={() => handleDelete(item.id)}>
                 <AiOutlineDelete className="cursor-pointer" />
               </button>

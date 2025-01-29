@@ -58,12 +58,12 @@ const Cart = ({ isOpen, onClose }) => {
         </div>
 
         {/* Body */}
-        <div className="px-6 py-2 flex-1 overflow-auto">
+        <div className="px-6 py-2 flex-1 max-h-[80.5vh] overflow-y-auto scrollbar-hide">
           <CartItems />
         </div>
 
         {/* Footer */}
-        <footer className="absolute bottom-0 w-full">
+        <footer className="absolute bottom-0 w-full z-50">
           <div className="px-6 py-4 flex justify-between">
             <h2 className="text-lg font-semibold">Total:</h2>
             <h2 className="text-lg font-semibold">$0</h2>

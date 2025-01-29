@@ -1,8 +1,10 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation"; // ✅ Correct way in Next.js
 import ProductCard from "./ProductCard";
 
 function Products() {
+  const router = useRouter(); // ✅ Use Next.js router instead of useNavigate
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -33,9 +35,13 @@ function Products() {
       </div>
 
       <div className="w-full flex justify-center">
-        <button type="button" className="bg-[#DA0037] flex items-center px-4 py-2 rounded">
+        <button
+          type="button"
+          className="bg-[#DA0037] flex gap-2 items-center px-4 py-2 rounded text-[#EDEDED]"
+          onClick={() => router.push("/products")} // ✅ Use router.push()
+        >
           All Products
-          <span className="chakra-button__icon css-1hzyiq5 ml-2">
+          <span>
             <svg
               stroke="currentColor"
               fill="currentColor"
@@ -47,7 +53,7 @@ function Products() {
               width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <path d="M14.854 4.854a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 4H3.5A2.5 2.5 0 0 0 1 6.5v8a.5.5 0 0 0 1 0v-8A1.5 1.5 0 0 1 3.5 5h9.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4z"></path>
+              <path d="M14.854 4.854a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 4H3.5A2.5.5 0 0 0 1 6.5v8a.5.5 0 0 0 1 0v-8A1.5.5 0 0 1 3.5 5h9.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4z"></path>
             </svg>
           </span>
         </button>

@@ -10,12 +10,12 @@ const PaginationControls = ({
 
   const getPageNumbers = () => {
     const pages = [];
-    const maxVisiblePages = 3; // Number of pages visible before showing ellipses
+    const maxVisiblePages = 3;
 
     for (let i = 1; i <= totalPages; i++) {
       if (
-        i === 1 || // Always show first page
-        i === totalPages || // Always show last page
+        i === 1 || 
+        i === totalPages || 
         (i >= currentPage - maxVisiblePages && i <= currentPage + maxVisiblePages)
       ) {
         pages.push(i);
@@ -28,10 +28,10 @@ const PaginationControls = ({
   };
 
   return (
-    <div className="flex justify-center items-center mt-10 space-x-2">
+    <div className="flex justify-center items-center mt-14 space-x-2">
       {/* Previous Button */}
       <button
-        onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+        onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))}
         disabled={currentPage === 1}
         className="px-3 py-1 rounded-md bg-gray-700 text-white disabled:opacity-50"
       >
@@ -59,7 +59,7 @@ const PaginationControls = ({
 
       {/* Next Button */}
       <button
-        onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+        onClick={() => setCurrentPage(Math.min(currentPage + 1, totalPages))}
         disabled={currentPage === totalPages}
         className="px-3 py-1 rounded-md bg-gray-700 text-white disabled:opacity-50"
       >
@@ -70,4 +70,5 @@ const PaginationControls = ({
 };
 
 export default PaginationControls;
+
 

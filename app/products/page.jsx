@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import ProductCard from "@/components/products/ProductCard";
 import Header from "@/components/hero/Header";
@@ -10,9 +11,13 @@ import PaginationControls from "@/components/pagination/PaginationControls";
 const PRODUCTS_PER_PAGE = 10;
 
 const Page = () => {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const pageFromURL = parseInt(searchParams.get("page")) || 1;
+
   const [products, setProducts] = useState([]);
   const [totalProducts, setTotalProducts] = useState(0);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(pageFromURL);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -27,6 +32,12 @@ const Page = () => {
 
     fetchProducts();
   }, [currentPage]);
+
+  // Update URL when currentPage changes
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+    router.push(`/products?page=${page}`);
+  };
 
   return (
     <>
@@ -47,7 +58,7 @@ const Page = () => {
                     width="1em"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <path d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"></path>
+                    <path d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"></path>
                   </svg>
                 </span>
                 Home
@@ -71,7 +82,7 @@ const Page = () => {
             {/* Pagination Controls */}
             <PaginationControls
               currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
+              setCurrentPage={handlePageChange}
               totalProducts={totalProducts}
               PRODUCTS_PER_PAGE={PRODUCTS_PER_PAGE}
             />
@@ -85,4 +96,5 @@ const Page = () => {
 };
 
 export default Page;
+
 

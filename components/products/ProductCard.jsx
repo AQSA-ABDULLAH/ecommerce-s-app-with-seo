@@ -7,36 +7,46 @@ function ProductCard({ product }) {
 
   const addProduct = (e) => {
     e.preventDefault();
-
-    // Dispatch the product to the store
     dispatch(addToCart(product));
   };
 
   return (
-    <div className="bg-[#444444] rounded-[16px] text-[#FFFFFF] overflow-hidden font-style">
-      <div className="h-[300px]">
+    <div className="bg-[#444444] rounded-[16px] text-[#FFFFFF] overflow-hidden font-style relative">
+      {/* Image Wrapper */}
+      <div className="h-[300px] relative">
         <img
           alt={product.title}
           src={product.thumbnail}
-          className="w-[100%] h-[100%] object-cover"
+          className="w-full h-full object-cover"
         />
       </div>
+
+      {/* Content */}
+
       <div className="mt-[24px] p-[16px]">
-        <div className="relative">
-          <h2 className="text-[30px] line-clamp-1">{product.title}</h2>
-          <div className="overlay-grad"></div>
-          <p className="pt-[8px] font-[16px] text-[#FFFFFF] line-clamp-2">
+        <div >
+          <div className="relative">
+            <h2 className="text-[30px] line-clamp-1">{product.title}</h2>
+            {/* Gradient Overlay */}
+            <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-l from-[#444] to-transparent"></div>
+          </div>
+
+          <p className="pt-[8px] text-[16px] text-[#FFFFFF] line-clamp-2">
             {product.description}
           </p>
-          <span className="text-[#DA0037] text-[16px] font-semibold">
+          <span className="text-[#DA0037] text-[16px] font-semibold cursor-pointer">
             read more
           </span>
-          <p className="text-[24px] text-[#DA0037] font-bold">${product.price}</p>
+          <p className="text-[24px] text-[#DA0037] font-bold">
+            ${product.price}
+          </p>
+
+          {/* Add to Cart Button */}
           <div className="mt-[12px] pt-[16px]">
             <button
               type="button"
               onClick={addProduct}
-              className="bg-[#DA0037] w-full px-6 py-2 rounded-md flex justify-center items-center gap-2 hover:bg-primary-dark"
+              className="bg-[#DA0037] w-full px-6 py-2 rounded-md flex justify-center items-center gap-2 hover:bg-[#b0002c] transition-all duration-300"
             >
               <svg
                 stroke="currentColor"

@@ -26,12 +26,12 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #DA0037; /* Red scrollbar thumb */
+  background: #da0037; /* Red scrollbar thumb */
   border-radius: 10px; /* Rounded edges */
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #DA0037; /* Darker red on hover */
+  background: #da0037; /* Darker red on hover */
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {

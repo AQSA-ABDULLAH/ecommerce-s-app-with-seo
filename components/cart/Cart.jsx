@@ -58,7 +58,7 @@ const Cart = ({ isOpen, onClose }) => {
         </div>
 
         {/* Body */}
-        <div className="px-6 py-2 flex-1 max-h-[80.5vh] overflow-y-auto scrollbar-hide">
+        <div className="px-6 py-2 flex-1 max-h-[80.5vh] overflow-y-auto custom-scrollbar">
           <CartItems />
         </div>
 

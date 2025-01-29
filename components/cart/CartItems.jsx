@@ -5,11 +5,11 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { removeFromCart } from "../../app/lib/features/cart/slice";
 
 function CartItems() {
-  const cartItems = useSelector((state) => state.cart.cart); // Access the cart array
+  const cartItems = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
-    dispatch(removeFromCart(id)); // Dispatch the action with the item's ID
+    dispatch(removeFromCart(id));
   };
 
   return (

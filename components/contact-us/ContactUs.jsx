@@ -4,7 +4,7 @@ function ContactSection() {
   const backgroundImage = "/assets/storebg.jpg";
 
   return (
-    <div className="bg-[#171717] relative py-32">
+    <div className="relative py-32">
       {/* Wrapper with the clip-path applied */}
       <div
           className="bg-gradient-to-r from-black/50 via-red-700/30 to-black/50 bg-cover bg-center py-[100px] relative"

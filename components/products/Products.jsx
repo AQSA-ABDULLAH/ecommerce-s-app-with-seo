@@ -18,7 +18,7 @@ function Products() {
   }, []);
 
   return (
-    <div className="bg-[#171717]">
+    <div>
       <div className="py-[64px] px-[16px]">
         <h2 className="uppercase text-[#EDEDED] text-[36px] mb-[64px] text-center">
           available <span className="text-[#DA0037]">items</span>

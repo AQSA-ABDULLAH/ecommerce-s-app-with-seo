@@ -1,9 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux"; // Import useSelector from react-redux
 import CartItems from "./CartItems";
 
 const Cart = ({ isOpen, onClose }) => {
+  const cartItems = useSelector((state) => state.cart.cart); // Get cart items from Redux
+
+  // Calculate total price
+  const totalPrice = cartItems.reduce((total, item) => total + item.price, 0).toFixed(2);
+
   useEffect(() => {
     // Disable scrolling when the cart is open
     if (isOpen) {
@@ -66,7 +72,8 @@ const Cart = ({ isOpen, onClose }) => {
         <footer className="absolute bottom-0 w-full z-50">
           <div className="px-6 py-4 flex justify-between">
             <h2 className="text-lg font-semibold">Total:</h2>
-            <h2 className="text-lg font-semibold">$0</h2>
+            {/* Display total price */}
+            <h2 className="text-lg font-semibold">${totalPrice}</h2>
           </div>
         </footer>
       </div>
@@ -75,3 +82,5 @@ const Cart = ({ isOpen, onClose }) => {
 };
 
 export default Cart;
+
+

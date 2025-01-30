@@ -98,16 +98,17 @@ const Main = ({ product }) => {
               Add to Cart
             </button>
             <span
-              className={`font-semibold ${
+              className={`font-semibold uppercase ${
                 product.stock > 0 ? "text-green-500" : "text-red-500"
               }`}
             >
-              {product.availabilityStatus}
+              In Stock:{" "}
+              {product.stock}
             </span>
           </div>
 
           {/* Rating */}
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mt-[16px] text-sm text-gray-500">
             Average ratings:{" "}
             <span className="text-green-500 font-medium">{product.rating}</span>
           </p>

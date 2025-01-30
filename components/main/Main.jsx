@@ -28,9 +28,9 @@ function Main() {
   ];
 
   return (
-    <div className="max-w-[1200px] mx-auto py-[128px] font-style">
-      <div className="mx-[283px] px-[10px]">
-        <h2 className="text-[36px] mb-[64px] uppercase font-bold">
+    <div className="2xl:max-w-[1200px] mx-auto py-[128px] font-style">
+      <div className="sm:mx-[283px] px-[10px]">
+        <h2 className="text-[30px] sm:text-[36px] mb-[64px] uppercase font-bold">
           Featured <span className="text-[#DA0037]">ITEMS</span>
         </h2>
         {sections.map((section, index) => (

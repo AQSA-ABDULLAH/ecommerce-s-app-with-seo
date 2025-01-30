@@ -12,15 +12,15 @@ function Header() {
 
   return (
     <div className="max-w-[1200px] mx-auto">
-      <div className="mx-[83px] bg-[#DA003785] rounded-[15px] flex justify-between items-center py-[4px] px-[10px]">
+      <div className="bg-[#DA003785] rounded-[15px] flex justify-between items-center py-[4px] px-[10px]">
         <a href="/" className="text-inherit decoration-inherit">
           <div className="flex gap-[0.25rem] items-center">
             <img
               alt="Logo"
               src="/assets/logo.webp"
-              className="w-[40px] h-[43px]"
+              className="w-[40px] h-[40px] sm:h-[43px]"
             />
-            <h2 className="text-[36px] text-[#EDEDED]">NC</h2>
+            <h2 className="text-[30px] sm:text-[36px] text-[#EDEDED]">NC</h2>
           </div>
         </a>
         <button

@@ -41,10 +41,10 @@ const Page = () => {
 
   return (
     <>
-      <div className="py-5 px-4">
+      <div className="max-w-[1200px] mx-auto py-5 px-4">
         <Header />
 
-        <section className="mx-[83px]">
+        <section>
           <div className="mt-20">
             <Link href="/">
               <button className="flex items-center gap-2 bg-black/60 text-sm font-medium px-3 py-2 rounded-md">
@@ -71,7 +71,7 @@ const Page = () => {
               Available <span className="text-[#DA0037]">Items</span>
             </h1>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {products.map((product) => (
                 <Link key={product.id} href={`/products/${product.id}`}>
                   <ProductCard product={product} />

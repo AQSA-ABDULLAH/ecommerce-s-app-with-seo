@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="bg-[#000000CC] text-[#EDEDED]">
       <div className="max-w-[1200px] mx-auto">
-      <div className="mx-[83px] px-[16px] py-[32px]">
+      <div className="px-[16px] py-[32px]">
         {/* Logo and Developer Info */}
         <a href="/" className="text-[#DA0037] text-[36px] font-bold">
           Next Cart

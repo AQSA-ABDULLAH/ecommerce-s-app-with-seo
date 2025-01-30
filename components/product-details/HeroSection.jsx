@@ -19,8 +19,8 @@ function HeroSection({ product }) {
         <div className="absolute z-50 inset-0 py-[20px]">
           <Header />
         </div>
-        <div className="absolute inset-0 flex flex-col gap-[16px] items-center justify-center">
-          <p className="text-[30px] font-semibold">{product.title}</p>{" "}
+        <div className="absolute px-[16px] inset-0 flex flex-col gap-[16px] items-center text-center justify-center">
+          <p className="text-[24px] sm:text-[30px] font-semibold">{product.title}</p>{" "}
           <StarRating />
         </div>
       </div>

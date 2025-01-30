@@ -23,7 +23,7 @@ function ProductCard({ product }) {
         />
       </div>
 
-      <div className="relative">
+      <div className="relative mt-[24px] p-[16px]">
         <div>
           <h2 className="text-[30px] line-clamp-1">{product.title}</h2>
           {/* Gradient Overlay */}

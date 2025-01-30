@@ -61,7 +61,7 @@ const Main = ({ product }) => {
         </div>
 
         {/* Product Info */}
-        <div className="px-[32px] mt-6 md:mt-0">
+        <div className="sm:px-[32px] mt-6 md:mt-0">
           <h2 className="text-[36px] font-semibold">{product.title}</h2>
           <p className="text-[16px] mt-[8px]">{product.description}</p>
 
@@ -84,8 +84,8 @@ const Main = ({ product }) => {
           </div>
 
           {/* Add to Cart Button */}
-          <div className="mt-[16px] flex justify-between items-center">
-            <div className="w-[30%]">
+          <div className="mt-[16px] flex flex-col sm:flex-row gap-4 justify-between sm:items-center">
+            <div className="sm:w-[30%]">
             <AddToCart product={product} isInCart={isInCart} />
             </div>
             <span

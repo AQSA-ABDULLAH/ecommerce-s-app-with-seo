@@ -23,7 +23,7 @@ function Products() {
         <h2 className="uppercase text-[#EDEDED] text-[36px] mb-[64px] text-center">
           available <span className="text-[#DA0037]">items</span>
         </h2>
-        <div className="flex justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:justify-between gap-4">
           {products.length > 0 ? (
             products.map((product) => (
               <ProductCard key={product.id} product={product} />

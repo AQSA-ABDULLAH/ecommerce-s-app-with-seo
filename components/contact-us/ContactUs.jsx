@@ -13,13 +13,11 @@ function ContactSection() {
             clipPath: "polygon(0 0, 100% 20%, 100% 100%, 0 80%)", // Applying the clip-path here
           }}
         >
-        {/* Overlay */}
         
-
         {/* Content Section */}
-        <div className="mx-[424px] px-[16px] text-center relative z-20">
+        <div className="mx-auto px-[16px] text-center relative z-20">
           <div className="text-[#EDEDED] font-style">
-            <h2 className="text-[36px] font-bold">
+            <h2 className="text-[30px] sm:text-[36px] font-bold">
               Contact <span className="text-[#DA0037]">US</span>
             </h2>
             <p className="text-[16px] mt-[8px]">

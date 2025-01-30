@@ -4,7 +4,7 @@ import ActionButtons from "./ActionButtons";
 function ProductDetails({ title, description, price }) {
   return (
     <div className="flex-1">
-      <h2 className="text-[30px] font-bold">
+      <h2 className="text-[24px] sm:text-[30px] font-bold">
         {title.split(" ")[0]}{" "}
         <span className="text-[#DA0037]">{title.split(" ")[1]}</span>
       </h2>

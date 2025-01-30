@@ -8,7 +8,7 @@ function Section({ image, title, description, price, reverse }) {
     <motion.div
       initial={{ opacity: 0, x: reverse ? 100 : -100 }} // Start position (off-screen)
       whileInView={{ opacity: 1, x: 0 }} // Animate when in view
-      viewport={{ once: true, amount: 0.2 }} // Trigger animation when 20% is visible
+      viewport={{ once: false, amount: 0.2 }} // Repeats animation every time section enters view
       transition={{ duration: 0.8, ease: "easeOut" }} // Smooth transition
       className={`flex flex-col lg:flex-row gap-8 mt-[56px] items-start text-[#EDEDED] font-style ${
         reverse ? "lg:flex-row-reverse" : ""
@@ -30,4 +30,5 @@ function Section({ image, title, description, price, reverse }) {
 }
 
 export default Section;
+
 

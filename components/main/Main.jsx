@@ -28,7 +28,7 @@ function Main() {
   ];
 
   return (
-    <div className="py-[128px] font-style">
+    <div className="max-w-[1200px] mx-auto py-[128px] font-style">
       <div className="mx-[283px] px-[10px]">
         <h2 className="text-[36px] mb-[64px] uppercase font-bold">
           Featured <span className="text-[#DA0037]">ITEMS</span>

@@ -34,7 +34,7 @@ function Hero() {
         <div className="absolute z-50 my-[20px] px-[16px] py-[4px] w-[100%]">
           <Header />
         </div>
-        <div className="absolute inset-0 flex items-center justify-start">
+        <div className="absolute inset-0 flex items-center justify-start max-w-[1200px] mx-auto">
           <div className="px-[99px] py-[16px] max-w-[780px] font-style">
             <h2 className="text-[36px] font-semibold">
               Welcome to <span className="text-[#DA0037] font-extrabold">NEXT</span> cart

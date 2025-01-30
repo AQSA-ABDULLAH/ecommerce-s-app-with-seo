@@ -16,13 +16,25 @@ function ProductCard({ product }) {
   return (
     <div className="bg-[#444444] rounded-[16px] text-[#FFFFFF] overflow-hidden font-style relative">
       <div className="h-[300px] relative">
-        <img alt={product.title} src={product.thumbnail} className="w-full h-full object-cover" />
+        <img
+          alt={product.title}
+          src={product.thumbnail}
+          className="w-full h-full object-cover"
+        />
       </div>
 
-      <div className="mt-[24px] p-[16px]">
-        <h2 className="text-[30px] line-clamp-1">{product.title}</h2>
-        <p className="pt-[8px] text-[16px] text-[#FFFFFF] line-clamp-2">{product.description}</p>
-        <span className="text-[#DA0037] text-[16px] font-semibold cursor-pointer">read more</span>
+      <div className="relative">
+        <div>
+          <h2 className="text-[30px] line-clamp-1">{product.title}</h2>
+          {/* Gradient Overlay */}
+          <div className="absolute top-0 right-0 w-full h-[20%] bg-gradient-to-l from-[#444] to-transparent"></div>
+        </div>
+        <p className="pt-[8px] text-[16px] text-[#FFFFFF] line-clamp-2">
+          {product.description}
+        </p>
+        <span className="text-[#DA0037] text-[16px] font-semibold cursor-pointer">
+          read more
+        </span>
         <p className="text-[24px] text-[#DA0037] font-bold">${product.price}</p>
 
         <div className="mt-[12px] pt-[16px]">

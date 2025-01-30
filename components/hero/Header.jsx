@@ -11,7 +11,7 @@ function Header() {
   };
 
   return (
-    <>
+    <div className="max-w-[1200px] mx-auto">
       <div className="mx-[83px] bg-[#DA003785] rounded-[15px] flex justify-between items-center py-[4px] px-[10px]">
         <a href="/" className="text-inherit decoration-inherit">
           <div className="flex gap-[0.25rem] items-center">
@@ -49,7 +49,7 @@ function Header() {
 
       {/* Render the Cart component */}
       <Cart isOpen={showCart} onClose={toggleCart} />
-    </>
+    </div>
   );
 }
 

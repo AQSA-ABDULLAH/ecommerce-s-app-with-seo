@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion"; // Import Framer Motion
 import Link from "next/link";
 import PlayPauseButton from "./PlayButton";
 import FullscreenButton from "./FullScreenButton";
@@ -28,7 +29,7 @@ const Main = ({ product }) => {
                 width="1em"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"></path>
+                <path d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"></path>
               </svg>
             </span>
             Back
@@ -38,8 +39,14 @@ const Main = ({ product }) => {
 
       {/* Product Section */}
       <div className="px-[16px] my-[32px] grid gap-4 grid-cols-1 md:grid-cols-[1fr_2fr]">
-        {/* Product Image */}
-        <div className="flex flex-col items-center">
+        {/* Product Image with Scroll Animation */}
+        <motion.div
+          className="flex flex-col items-center"
+          initial={{ opacity: 0, x: -50 }} // Start from the left
+          whileInView={{ opacity: 1, x: 0 }} // Move to normal position on scroll
+          transition={{ duration: 0.8, ease: "easeOut" }} // Smooth animation
+          viewport={{ once: true }} // Animate only once per scroll
+        >
           <div>
             <img
               src={product.thumbnail}
@@ -58,10 +65,16 @@ const Main = ({ product }) => {
               className="h-[80px] object-contain border-[4px] border-[#337ab7]"
             />
           </div>
-        </div>
+        </motion.div>
 
-        {/* Product Info */}
-        <div className="sm:px-[32px] mt-6 md:mt-0">
+        {/* Product Info with Scroll Animation */}
+        <motion.div
+          className="sm:px-[32px] mt-6 md:mt-0"
+          initial={{ opacity: 0, y: 50 }} // Start from bottom
+          whileInView={{ opacity: 1, y: 0 }} // Move up on scroll
+          transition={{ duration: 0.8, ease: "easeOut" }} // Smooth animation
+          viewport={{ once: true }} // Animate only once per scroll
+        >
           <h2 className="text-[36px] font-semibold">{product.title}</h2>
           <p className="text-[16px] mt-[8px]">{product.description}</p>
 
@@ -86,15 +99,14 @@ const Main = ({ product }) => {
           {/* Add to Cart Button */}
           <div className="mt-[16px] flex flex-col sm:flex-row gap-4 justify-between sm:items-center">
             <div className="sm:w-[30%]">
-            <AddToCart product={product} isInCart={isInCart} />
+              <AddToCart product={product} isInCart={isInCart} />
             </div>
             <span
               className={`font-semibold uppercase ${
                 product.stock > 0 ? "text-green-500" : "text-red-500"
               }`}
             >
-              In Stock:{" "}
-              {product.stock}
+              In Stock: {product.stock}
             </span>
           </div>
 
@@ -103,11 +115,14 @@ const Main = ({ product }) => {
             Average ratings:{" "}
             <span className="text-green-500 font-medium">{product.rating}</span>
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
 };
 
 export default Main;
+
+
+
 

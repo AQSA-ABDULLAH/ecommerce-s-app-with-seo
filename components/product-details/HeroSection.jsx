@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion"; // Import Framer Motion
 import Header from "../hero/Header";
 import StarRating from "./Rating";
 
@@ -19,13 +20,22 @@ function HeroSection({ product }) {
         <div className="absolute z-50 inset-0 py-[20px]">
           <Header />
         </div>
-        <div className="absolute px-[16px] inset-0 flex flex-col gap-[16px] items-center text-center justify-center">
-          <p className="text-[24px] sm:text-[30px] font-semibold">{product.title}</p>{" "}
+
+        {/* Animated Section */}
+        <motion.div
+          className="absolute px-[16px] inset-0 flex flex-col gap-[16px] items-center text-center justify-center"
+          initial={{ opacity: 0, scale: 0.6 }} // Start smaller and transparent
+          animate={{ opacity: 1, scale: 1 }} // Zoom in effect
+          transition={{ duration: 0.8, ease: "easeOut" }} // Smooth transition
+        >
+          <p className="text-[24px] sm:text-[30px] font-semibold">{product.title}</p>
           <StarRating />
-        </div>
+        </motion.div>
       </div>
     </div>
   );
 }
 
 export default HeroSection;
+
+

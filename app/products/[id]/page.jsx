@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import HeroSection from "@/components/product-details/HeroSection";
 import Main from "@/components/product-details/Main";
+import Footer from "@/components/footer/Footer";
 
 async function fetchProductDetails(id) {
   const res = await fetch(`https://dummyjson.com/products/${id}`);
@@ -46,6 +47,7 @@ const ProductDetail = ({ params }) => {
       {/* Pass the product data as a prop to HeroSection */}
       <HeroSection product={product} />
       <Main product={product} />
+      <Footer />
     </div>
   );
 };

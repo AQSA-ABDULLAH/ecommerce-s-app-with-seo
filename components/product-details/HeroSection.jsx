@@ -4,15 +4,15 @@ import StarRating from "./Rating";
 
 function HeroSection({ product }) {
   return (
-    <div>
-      <div
-        className="min-h-[500px] bg-contain relative bg-center bg-fixed"
-        style={{
-          backgroundImage: `url(${product.thumbnail})`, // Correctly set the background image
-          backgroundColor: "#ccc",
-          boxShadow: "inset 100px 100px 100px 100px rgba(0,0,0,0)",
-        }}
-      >
+    <div
+      className="min-h-[500px] bg-contain relative bg-center bg-fixed"
+      style={{
+        backgroundImage: `url(${product.thumbnail})`, // Correctly set the background image
+        backgroundColor: "#ccc",
+        boxShadow: "inset 100px 100px 100px 100px rgba(0,0,0,0)",
+      }}
+    >
+      <div className="w-full max-w-[1200px]">
         {/* Overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.8),rgba(218,0,55,0.569))] backdrop-blur-[8px]"></div>
 

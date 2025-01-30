@@ -85,7 +85,9 @@ const Main = ({ product }) => {
 
           {/* Add to Cart Button */}
           <div className="mt-[16px] flex justify-between items-center">
+            <div className="w-[30%]">
             <AddToCart product={product} isInCart={isInCart} />
+            </div>
             <span
               className={`font-semibold uppercase ${
                 product.stock > 0 ? "text-green-500" : "text-red-500"

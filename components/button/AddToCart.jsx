@@ -28,7 +28,7 @@ function AddToCart({ product, isInCart }) {
         type="button"
         onClick={addProduct}
         disabled={isInCart}
-        className={`px-6 py-2 rounded-md flex justify-center items-center gap-2 bg-[#DA0037] transition-all duration-300 
+        className={`w-full px-6 py-2 rounded-md flex justify-center items-center gap-2 bg-[#DA0037] transition-all duration-300 
           ${isInCart ? "opacity-40 cursor-not-allowed" : "hover:bg-[#b0002c]"}`}
       >
         🛒 {isInCart ? "Added to Cart" : "Add to Cart"}

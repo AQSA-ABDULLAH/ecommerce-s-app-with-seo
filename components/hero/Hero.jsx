@@ -31,7 +31,7 @@ function Hero() {
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/60 backdrop-blur-[3px]"></div>
 
-        <div className="absolute z-50 my-[20px] px-[16px] py-[4px] w-[100%] font-style">
+        <div className="absolute z-50 my-[20px] px-[16px] py-[4px] w-[100%]">
           <Header />
         </div>
         <div className="absolute inset-0 flex items-center justify-start">

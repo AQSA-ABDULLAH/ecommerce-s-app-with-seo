@@ -16,7 +16,7 @@ function HeroSection({ product }) {
         {/* Overlay */}
         <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.8),rgba(218,0,55,0.569))] backdrop-blur-[8px]"></div>
 
-        <div className="absolute inset-0 py-[20px]">
+        <div className="absolute z-50 inset-0 py-[20px]">
           <Header />
         </div>
         <div className="absolute inset-0 flex flex-col gap-[16px] items-center justify-center">

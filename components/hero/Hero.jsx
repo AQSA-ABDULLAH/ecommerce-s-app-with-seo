@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Header from "./Header";
 
 const images = [
@@ -34,9 +35,15 @@ function Hero() {
         <div className="absolute z-50 my-[20px] px-[16px] py-[4px] w-[100%]">
           <Header />
         </div>
+
         <div className="absolute inset-0 flex items-center justify-start max-w-[1200px] mx-auto">
-          <div className="px-[16px] py-[16px] max-w-[780px] font-style">
-            <h2 className="text-[36px] font-semibold">
+          <motion.div
+            className="px-[16px] py-[16px] max-w-[780px] font-style"
+            initial={{ opacity: 0, y: 120 }} // Start from bottom (y: 50)
+            animate={{ opacity: 1, y: 0 }} // Animate to normal position
+            transition={{ duration: 0.8, ease: "easeOut" }} // Smooth transition
+          >
+            <h2 className="text-[30px] sm:text-[36px] font-semibold">
               Welcome to <span className="text-[#DA0037] font-extrabold">NEXT</span> cart
             </h2>
             <p className="text-[16px] mt-[6px]">
@@ -54,7 +61,7 @@ function Hero() {
                 </button>
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
@@ -62,3 +69,4 @@ function Hero() {
 }
 
 export default Hero;
+

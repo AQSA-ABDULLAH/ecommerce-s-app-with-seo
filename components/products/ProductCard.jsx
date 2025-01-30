@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { motion } from "framer-motion"; // ✅ Import Framer Motion
 import AddToCart from "../button/AddToCart";
 
 function ProductCard({ product }) {
@@ -14,7 +15,13 @@ function ProductCard({ product }) {
   const isInCart = cart.some((item) => item.title === product.title);
 
   return (
-    <div className="bg-[#444444] rounded-[16px] text-[#FFFFFF] overflow-hidden font-style relative">
+    <motion.div
+      initial={{ opacity: 0, y: 80 }} // Start from 50px below
+      whileInView={{ opacity: 1, y: 0 }} // Move up and fade in
+      viewport={{ once: false, amount: 0.2 }} // Animate every time it enters view
+      transition={{ duration: 0.8, ease: "easeOut" }} // Smooth transition
+      className="bg-[#444444] rounded-[16px] text-[#FFFFFF] overflow-hidden font-style relative"
+    >
       <div className="h-[300px] relative">
         <img
           alt={product.title}
@@ -41,7 +48,7 @@ function ProductCard({ product }) {
           <AddToCart product={product} isInCart={isInCart} />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -1,19 +1,24 @@
+"use client";
 import React from "react";
+import { motion } from "framer-motion"; // ✅ Import Framer Motion
 
 function ContactSection() {
   const backgroundImage = "/assets/storebg.jpg";
 
   return (
     <div className="relative py-32">
-      {/* Wrapper with the clip-path applied */}
-      <div
-          className="bg-gradient-to-r from-black/50 via-red-700/30 to-black/50 bg-cover bg-center py-[100px] relative"
-          style={{
-            backgroundImage: `linear-gradient(270deg, rgba(0, 0, 0, 0.5), rgba(218, 0, 55, 0.318)), url(${backgroundImage})`,
-            clipPath: "polygon(0 0, 100% 20%, 100% 100%, 0 80%)", // Applying the clip-path here
-          }}
-        >
-        
+      {/* Animated Wrapper */}
+      <motion.div
+        initial={{ opacity: 0, y: 50 }} // Start hidden & 50px below
+        whileInView={{ opacity: 1, y: 0 }} // Move up and fade in
+        viewport={{ once: false, amount: 0.2 }} // Animate every time it enters view
+        transition={{ duration: 0.8, ease: "easeOut" }} // Smooth transition
+        className="bg-gradient-to-r from-black/50 via-red-700/30 to-black/50 bg-cover bg-center py-[100px] relative"
+        style={{
+          backgroundImage: `linear-gradient(270deg, rgba(0, 0, 0, 0.5), rgba(218, 0, 55, 0.318)), url(${backgroundImage})`,
+          clipPath: "polygon(0 0, 100% 20%, 100% 100%, 0 80%)", // Applying the clip-path here
+        }}
+      >
         {/* Content Section */}
         <div className="mx-auto px-[16px] text-center relative z-20">
           <div className="text-[#EDEDED] font-style">
@@ -30,7 +35,7 @@ function ContactSection() {
                 className="bg-[#DA0037] px-[16px] py-[8px] mt-[32px] rounded-[4px] text-[16px] hover:bg-[#bd2a2a] cursor-pointer"
               >
                 <span className="flex items-center gap-2">
-                Info
+                  Info
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
@@ -52,9 +57,10 @@ function ContactSection() {
             </a>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }
 
 export default ContactSection;
+

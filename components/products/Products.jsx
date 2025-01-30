@@ -1,10 +1,10 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation"; // ✅ Correct way in Next.js
+import { useRouter } from "next/navigation";
 import ProductCard from "./ProductCard";
 
 function Products() {
-  const router = useRouter(); // ✅ Use Next.js router instead of useNavigate
+  const router = useRouter();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function Products() {
     const fetchProducts = async () => {
       const res = await fetch("https://dummyjson.com/products?limit=3");
       const data = await res.json();
-      setProducts(data.products); // Set only the first 3 products
+      setProducts(data.products);
     };
     fetchProducts();
   }, []);
@@ -38,7 +38,7 @@ function Products() {
         <button
           type="button"
           className="bg-[#DA0037] flex gap-2 items-center px-4 py-2 rounded text-[#EDEDED]"
-          onClick={() => router.push("/products")} // ✅ Use router.push()
+          onClick={() => router.push("/products")}
         >
           All Products
           <span>
@@ -63,4 +63,3 @@ function Products() {
 }
 
 export default Products;
-

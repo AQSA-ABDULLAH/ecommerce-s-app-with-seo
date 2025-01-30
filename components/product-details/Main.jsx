@@ -4,13 +4,19 @@ import React from "react";
 import Link from "next/link";
 import PlayPauseButton from "./PlayButton";
 import FullscreenButton from "./FullScreenButton";
+import AddToCart from "../button/AddToCart";
+import { useSelector } from "react-redux"; // Import useSelector to access the Redux state
 
 const Main = ({ product }) => {
+  // Get the cart state from Redux and check if the product is already in the cart
+  const cart = useSelector((state) => state.cart.cart) || [];
+  const isInCart = cart.some((item) => item.title === product.title);
+
   return (
     <div className="w-full max-w-[1200px] mx-auto px-[16px]">
       {/* Back Button */}
       <div className="mt-[48px]">
-        <Link href="/">
+        <Link href="/products">
           <button className="flex items-center gap-2 bg-black/60 text-sm font-medium px-3 py-2 rounded-md">
             <span>
               <svg
@@ -79,24 +85,7 @@ const Main = ({ product }) => {
 
           {/* Add to Cart Button */}
           <div className="mt-[16px] flex justify-between items-center">
-            <button
-              type="button"
-              className="bg-[#DA0037] px-6 py-2 rounded-md flex items-center gap-2 hover:bg-primary-dark"
-            >
-              <svg
-                stroke="currentColor"
-                fill="currentColor"
-                strokeWidth="0"
-                viewBox="0 0 16 16"
-                height="1em"
-                width="1em"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z"></path>
-                <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
-              </svg>
-              Add to Cart
-            </button>
+            <AddToCart product={product} isInCart={isInCart} />
             <span
               className={`font-semibold uppercase ${
                 product.stock > 0 ? "text-green-500" : "text-red-500"
@@ -119,3 +108,4 @@ const Main = ({ product }) => {
 };
 
 export default Main;
+

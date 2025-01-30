@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { addToCart } from "@/app/lib/features/cart/slice";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";  // Import the toast function here
 
 function AddToCart({ product, isInCart }) {
   const dispatch = useDispatch();
 
-  const addProduct = (e) => {
+  const addProduct = useCallback((e) => {
     e.preventDefault();
     if (!isInCart) {
       dispatch(addToCart(product));
@@ -20,7 +20,7 @@ function AddToCart({ product, isInCart }) {
         theme: "dark",
       });
     }
-  };
+  }, [dispatch, isInCart, product]);
 
   return (
     <>
@@ -33,12 +33,11 @@ function AddToCart({ product, isInCart }) {
       >
         🛒 {isInCart ? "Added to Cart" : "Add to Cart"}
       </button>
-
-      {/* Move ToastContainer here */}
-      <ToastContainer />
     </>
   );
 }
 
 export default AddToCart;
+
+
 

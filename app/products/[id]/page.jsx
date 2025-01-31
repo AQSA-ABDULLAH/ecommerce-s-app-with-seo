@@ -3,7 +3,7 @@ export async function generateMetadata({ params }) {
 
   try {
     const product = await fetchProductDetails(id);
-    const imageUrl = product.thumbnail || "https://via.placeholder.com/300";
+    const imageUrl = product.thumbnail || "https://via.placeholder.com/1200x630"; // ✅ Use correct aspect ratio
 
     return {
       title: product.title || "Product Details",
@@ -12,12 +12,13 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: product.title || "Product Details",
         type: "article",
-        images: [imageUrl], // ✅ Fix: Use an array
+        image: imageUrl, // ✅ Fix: Use 'image' instead of 'images'
+        url: `https://ecommerce-s-app-with-seo.vercel.app/products/${id}`, // ✅ Make sure URL is correct
       },
       twitter: {
         title: product.title || "Product Details",
         description: product.description || "View product details",
-        images: [imageUrl], // ✅ Fix: Use an array
+        image: imageUrl, // ✅ Fix: Use 'image' instead of 'images'
         card: "summary_large_image",
       },
     };
@@ -29,17 +30,18 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: "Product Not Found",
         type: "article",
-        images: ["https://via.placeholder.com/300"], // ✅ Fix: Use an array
+        image: "https://via.placeholder.com/1200x630", // ✅ Use correct aspect ratio
       },
       twitter: {
         title: "Product Not Found",
         description: "The requested product could not be found.",
-        images: ["https://via.placeholder.com/300"], // ✅ Fix: Use an array
+        image: "https://via.placeholder.com/1200x630", // ✅ Use correct aspect ratio
         card: "summary_large_image",
       },
     };
   }
 }
+
 
 
 

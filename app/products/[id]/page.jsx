@@ -1,17 +1,23 @@
-import ProductDetail from "@/components/product-details/ProductDetail";
+"use client";
 
-export async function generateMetadata({ params }, parent) {
-  const { id } = params;
+import React, { useState, useEffect } from "react";
+import Head from "next/head"; // Import Next.js Head component
+import HeroSection from "@/components/product-details/HeroSection";
+import Main from "@/components/product-details/Main";
+import Footer from "@/components/footer/Footer";
 
+async function fetchProductDetails(id) {
+  const res = await fetch(`https://dummyjson.com/products/${id}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch product details");
+  }
+  return res.json();
+}
+
+const generateMetadata = async (id) => {
   try {
     const product = await fetchProductDetails(id);
-    const imageUrl = product.thumbnail
-      ? `https://${product.thumbnail}` // Ensure absolute URL for the image
-      : "https://via.placeholder.com/300"; // Fallback if thumbnail is not present
-
-    // Extend parent metadata
-    const previousImages = (await parent).openGraph?.images || [];
-
+    const imageUrl = product.thumbnail || "https://via.placeholder.com/300";
     return {
       title: product.title || "Product Details",
       description: product.description || "View product details",
@@ -19,12 +25,12 @@ export async function generateMetadata({ params }, parent) {
       openGraph: {
         title: product.title || "Product Details",
         type: "article",
-        images: [imageUrl, ...previousImages], // Use "images" instead of "image"
+        images: [imageUrl],
       },
       twitter: {
         title: product.title || "Product Details",
         description: product.description || "View product details",
-        images: [imageUrl], // Twitter also expects an array
+        images: [imageUrl],
         card: "summary_large_image",
       },
     };
@@ -36,7 +42,7 @@ export async function generateMetadata({ params }, parent) {
       openGraph: {
         title: "Product Not Found",
         type: "article",
-        images: ["https://via.placeholder.com/300"], // Use "images"
+        images: ["https://via.placeholder.com/300"],
       },
       twitter: {
         title: "Product Not Found",
@@ -46,21 +52,69 @@ export async function generateMetadata({ params }, parent) {
       },
     };
   }
-}
+};
 
-async function fetchProductDetails(id) {
-  const res = await fetch(`https://dummyjson.com/products/${id}`);
-  if (!res.ok) {
-    throw new Error("Failed to fetch product details");
+const ProductDetail = ({ params }) => {
+  const [product, setProduct] = useState(null);
+
+  // Unwrap params using React.use
+  const { id } = React.use(params); // Correctly unwrapping `params`
+
+  useEffect(() => {
+    const loadProductDetails = async () => {
+      try {
+        const productData = await fetchProductDetails(id);
+        setProduct(productData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    if (id) {
+      loadProductDetails();
+    }
+  }, [id]);
+
+  useEffect(() => {
+    const setMetadata = async () => {
+      if (id) {
+        const metadata = await generateMetadata(id);
+        // Update the page metadata dynamically using Next.js Head component
+        document.title = metadata.title;
+      }
+    };
+
+    setMetadata();
+  }, [id]);
+
+  if (!product) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p>Loading...</p>
+      </div>
+    );
   }
-  return res.json();
-}
 
-// Render the client component and pass params
-export default function ProductPage({ params }) {
-  return <ProductDetail id={params.id} />;
-}
+  return (
+    <div>
+      {/* Use Next.js Head component for metadata */}
+      <Head>
+        <title>{product.title || "Product Details"}</title>
+        <meta name="description" content={product.description || "View product details"} />
+        <meta name="keywords" content={`ecommerce, fake-store, next-ecommerce, ${product.category || "products"}`} />
+        <meta property="og:title" content={product.title || "Product Details"} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={product.thumbnail || "https://via.placeholder.com/300"} />
+        <meta name="twitter:title" content={product.title || "Product Details"} />
+        <meta name="twitter:description" content={product.description || "View product details"} />
+        <meta name="twitter:image" content={product.thumbnail || "https://via.placeholder.com/300"} />
+        <meta name="twitter:card" content="summary_large_image" />
+      </Head>
+      <HeroSection product={product} />
+      <Main product={product} />
+      <Footer />
+    </div>
+  );
+};
 
-
-
+export default ProductDetail;
 

@@ -15,12 +15,26 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: product.title || "Product Details",
         type: "article",
-        image: imageUrl,
+        images: [
+          {
+            url: "/assets/logo.webp",
+            width: 1200,
+            height: 630,
+            alt: "Cart App Preview Image",
+          },
+        ],
       },
       twitter: {
         title: product.title || "Product Details",
         description: product.description || "View product details",
-        image: imageUrl,
+        images: [
+          {
+            url: "/assets/logo.webp",
+            width: 1200,
+            height: 630,
+            alt: "Cart App Preview Image",
+          },
+        ],
         card: "summary_large_image",
       },
     };
@@ -32,12 +46,26 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: "Product Not Found",
         type: "article",
-        image: "https://via.placeholder.com/300",
+        images: [
+          {
+            url: "/assets/logo.webp",
+            width: 1200,
+            height: 630,
+            alt: "Cart App Preview Image",
+          },
+        ],
       },
       twitter: {
         title: "Product Not Found",
         description: "The requested product could not be found.",
-        image: "https://via.placeholder.com/300",
+        images: [
+          {
+            url: "/assets/logo.webp",
+            width: 1200,
+            height: 630,
+            alt: "Cart App Preview Image",
+          },
+        ],
         card: "summary_large_image",
       },
     };

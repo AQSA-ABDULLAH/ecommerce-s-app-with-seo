@@ -5,7 +5,9 @@ export async function generateMetadata({ params }, parent) {
 
   try {
     const product = await fetchProductDetails(id);
-    const imageUrl = product.thumbnail || "https://via.placeholder.com/300";
+    const imageUrl = product.thumbnail
+      ? `https://${product.thumbnail}` // Ensure absolute URL for the image
+      : "https://via.placeholder.com/300"; // Fallback if thumbnail is not present
 
     // Extend parent metadata
     const previousImages = (await parent).openGraph?.images || [];
@@ -58,6 +60,7 @@ async function fetchProductDetails(id) {
 export default function ProductPage({ params }) {
   return <ProductDetail id={params.id} />;
 }
+
 
 
 

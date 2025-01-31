@@ -17,9 +17,9 @@ async function fetchProductDetails(id) {
 const ProductDetail = ({ params }) => {
   const [product, setProduct] = useState(null);
   
-  // Use React.use() to unwrap the params object before accessing id
-  const { id } = React.use(params);  // Using React.use() to unwrap params
-  
+  // Extract id directly from params
+  const { id } = params;
+
   useEffect(() => {
     const loadProductDetails = async () => {
       try {
@@ -44,7 +44,6 @@ const ProductDetail = ({ params }) => {
 
   return (
     <div>
-      {/* Pass the product data as a prop to HeroSection */}
       <HeroSection product={product} />
       <Main product={product} />
       <Footer />

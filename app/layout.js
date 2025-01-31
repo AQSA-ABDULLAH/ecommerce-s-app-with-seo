@@ -13,11 +13,19 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+
 export const metadata = {
-  title: "Cart App",
+  title: { default: "Cart App", template: "%s - Cart App" },
   description: "Shop for your favorite items in this easy-to-use cart app.",
+  keywords: "Cart App, nextjs seo complete checklist, nextjs seo tutorial",
   openGraph: {
-    title: "Cart App",
+    title: { default: "Cart App", template: "%s - Cart App" },
+    description: "Shop for your favorite items in this easy-to-use cart app.",
+    images:
+      "/assets/logo.webp",
+  },
+  facebook: {
+    title: { default: "Cart App", template: "%s - Cart App" },
     description: "Shop for your favorite items in this easy-to-use cart app.",
     images: [
       {
@@ -27,13 +35,10 @@ export const metadata = {
         alt: "Cart App Preview Image",
       },
     ],
-    url: "https://yourwebsite.com",
-    siteName: "Cart App",
   },
   twitter: {
     card: "summary_large_image",
-    site: "@yourtwitterhandle",
-    title: "Cart App",
+    title: { default: "Cart App", template: "%s - Cart App" },
     description: "Shop for your favorite items in this easy-to-use cart app.",
     images: [
       {
@@ -49,6 +54,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#171717] text-[#EDEDED] font-style`}
       >

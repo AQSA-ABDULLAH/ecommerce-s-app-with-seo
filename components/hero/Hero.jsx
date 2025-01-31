@@ -22,7 +22,7 @@ function Hero() {
   return (
     <div className="min-h-screen">
       <div
-        className="h-screen bg-cover bg-center relative"
+        className="h-screen bg-contain relative bg-center bg-fixed"
         style={{
           backgroundImage: `url(${images[currentImageIndex]})`,
           backgroundColor: "#ccc",

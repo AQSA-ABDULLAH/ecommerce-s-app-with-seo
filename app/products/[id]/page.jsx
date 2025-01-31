@@ -6,6 +6,25 @@ import HeroSection from "@/components/product-details/HeroSection";
 import Main from "@/components/product-details/Main";
 import Footer from "@/components/footer/Footer";
 
+export async function generateMetadata({ params }) {
+  const { id } = params;
+
+  try {
+    const product = await fetchProductDetails(id);
+    return {
+      title: product.title || "Product Details",
+      description: product.description || "View product details",
+      images: product.thumbnail || "Product Image"
+    };
+  } catch (error) {
+    return {
+      title: "Product Not Found",
+      description: "The requested product could not be found.",
+       images: "Product Image not found"
+    };
+  }
+}
+
 async function fetchProductDetails(id) {
   const res = await fetch(`https://dummyjson.com/products/${id}`);
   if (!res.ok) {
@@ -17,7 +36,6 @@ async function fetchProductDetails(id) {
 const ProductDetail = ({ params }) => {
   const [product, setProduct] = useState(null);
   
-  // Extract id directly from params
   const { id } = params;
 
   useEffect(() => {
@@ -52,3 +70,4 @@ const ProductDetail = ({ params }) => {
 };
 
 export default ProductDetail;
+

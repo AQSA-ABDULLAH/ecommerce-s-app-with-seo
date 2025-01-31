@@ -13,7 +13,6 @@ export async function generateMetadata({ params }) {
         title: product.title || "Product Details",
         type: "article",
         image: "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png", // ✅ Fix: Use 'image' instead of 'images'
-        url: `https://ecommerce-s-app-with-seo.vercel.app/products/${id}`, // ✅ Make sure URL is correct
       },
       twitter: {
         title: product.title || "Product Details",

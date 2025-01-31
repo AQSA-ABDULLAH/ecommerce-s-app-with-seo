@@ -1,4 +1,3 @@
-// ❌ Remove "use client" from this file
 import ProductDetail from "@/components/product-details/ProductDetail";
 
 export async function generateMetadata({ params }) {
@@ -17,10 +16,10 @@ export async function generateMetadata({ params }) {
         type: "article",
         images: [
           {
-            url: "/assets/logo.webp",
+            url: imageUrl,
             width: 1200,
             height: 630,
-            alt: "Cart App Preview Image",
+            alt: product.title || "Cart App Preview Image",
           },
         ],
       },
@@ -29,10 +28,10 @@ export async function generateMetadata({ params }) {
         description: product.description || "View product details",
         images: [
           {
-            url: "/assets/logo.webp",
+            url: imageUrl,
             width: 1200,
             height: 630,
-            alt: "Cart App Preview Image",
+            alt: product.title || "Cart App Preview Image",
           },
         ],
         card: "summary_large_image",
@@ -84,6 +83,7 @@ async function fetchProductDetails(id) {
 export default function ProductPage({ params }) {
   return <ProductDetail id={params.id} />;
 }
+
 
 
 

@@ -1,9 +1,11 @@
+import ProductDetail from "@/components/product-details/ProductDetail";
+
 export async function generateMetadata({ params }) {
   const { id } = params;
 
   try {
     const product = await fetchProductDetails(id);
-    const imageUrl = product.thumbnail || "https://via.placeholder.com/1200x630"; // ✅ Use correct aspect ratio
+    const imageUrl = product.thumbnail || "https://via.placeholder.com/300";
 
     return {
       title: product.title || "Product Details",
@@ -12,12 +14,12 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: product.title || "Product Details",
         type: "article",
-        image: "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png", // ✅ Fix: Use 'image' instead of 'images'
+        images: "/assets/logo.webp",
       },
       twitter: {
         title: product.title || "Product Details",
         description: product.description || "View product details",
-        image: "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png", // ✅ Fix: Use 'image' instead of 'images'
+        images: product.thumbnail,
         card: "summary_large_image",
       },
     };
@@ -29,18 +31,29 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: "Product Not Found",
         type: "article",
-        image: "https://via.placeholder.com/1200x630", // ✅ Use correct aspect ratio
+        images: "https://via.placeholder.com/300",
       },
       twitter: {
         title: "Product Not Found",
         description: "The requested product could not be found.",
-        image: "https://via.placeholder.com/1200x630", // ✅ Use correct aspect ratio
+        images: "https://via.placeholder.com/300",
         card: "summary_large_image",
       },
     };
   }
 }
 
+async function fetchProductDetails(id) {
+  const res = await fetch(`https://dummyjson.com/products/${id}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch product details");
+  }
+  return res.json();
+}
 
+// Render the client component and pass params
+export default function ProductPage({ params }) {
+  return <ProductDetail id={params.id} />;
+}
 
 

@@ -14,12 +14,12 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: product.title || "Product Details",
         type: "article",
-        images: product.thumbnail,
+        images: imageUrl,
       },
       twitter: {
         title: product.title || "Product Details",
         description: product.description || "View product details",
-        images: product.thumbnail,
+        images: imageUrl,
         card: "summary_large_image",
       },
     };
@@ -31,12 +31,12 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: "Product Not Found",
         type: "article",
-        image: "https://via.placeholder.com/300",
+        images: "https://via.placeholder.com/300",
       },
       twitter: {
         title: "Product Not Found",
         description: "The requested product could not be found.",
-        image: "https://via.placeholder.com/300",
+        images: "https://via.placeholder.com/300",
         card: "summary_large_image",
       },
     };

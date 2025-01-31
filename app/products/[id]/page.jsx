@@ -96,19 +96,6 @@ const ProductDetail = ({ params }) => {
 
   return (
     <div>
-      {/* Use Next.js Head component for metadata */}
-      <Head>
-        <title>{product.title || "Product Details"}</title>
-        <meta name="description" content={product.description || "View product details"} />
-        <meta name="keywords" content={`ecommerce, fake-store, next-ecommerce, ${product.category || "products"}`} />
-        <meta property="og:title" content={product.title || "Product Details"} />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content={product.thumbnail || "https://via.placeholder.com/300"} />
-        <meta name="twitter:title" content={product.title || "Product Details"} />
-        <meta name="twitter:description" content={product.description || "View product details"} />
-        <meta name="twitter:image" content={product.thumbnail || "https://via.placeholder.com/300"} />
-        <meta name="twitter:card" content="summary_large_image" />
-      </Head>
       <HeroSection product={product} />
       <Main product={product} />
       <Footer />

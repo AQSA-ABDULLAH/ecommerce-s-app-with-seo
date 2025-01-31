@@ -39,9 +39,9 @@ function Hero() {
         <div className="absolute inset-0 flex items-center justify-start max-w-[1200px] mx-auto">
           <motion.div
             className="px-[16px] py-[16px] max-w-[780px] font-style"
-            initial={{ opacity: 0, y: 120 }} // Start from bottom (y: 50)
-            animate={{ opacity: 1, y: 0 }} // Animate to normal position
-            transition={{ duration: 0.8, ease: "easeOut" }} // Smooth transition
+            initial={{ opacity: 0, y: 120 }} 
+            animate={{ opacity: 1, y: 0 }} 
+            transition={{ duration: 0.8, ease: "easeOut" }} 
           >
             <h2 className="text-[30px] sm:text-[36px] font-semibold">
               Welcome to <span className="text-[#DA0037] font-extrabold">NEXT</span> cart

@@ -39,13 +39,14 @@ const Main = ({ product }) => {
 
       {/* Product Section */}
       <div className="px-[16px] my-[32px] grid gap-4 grid-cols-1 md:grid-cols-[1fr_2fr]">
+        
         {/* Product Image with Scroll Animation */}
         <motion.div
           className="flex flex-col items-center"
-          initial={{ opacity: 0, x: -50 }} // Start from the left
-          whileInView={{ opacity: 1, x: 0 }} // Move to normal position on scroll
-          transition={{ duration: 0.8, ease: "easeOut" }} // Smooth animation
-          viewport={{ once: true }} // Animate only once per scroll
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }} 
+          viewport={{ once: true }} 
         >
           <div>
             <img
@@ -70,10 +71,10 @@ const Main = ({ product }) => {
         {/* Product Info with Scroll Animation */}
         <motion.div
           className="sm:px-[32px] mt-6 md:mt-0"
-          initial={{ opacity: 0, y: 50 }} // Start from bottom
-          whileInView={{ opacity: 1, y: 0 }} // Move up on scroll
-          transition={{ duration: 0.8, ease: "easeOut" }} // Smooth animation
-          viewport={{ once: true }} // Animate only once per scroll
+          initial={{ opacity: 0, y: 90 }} 
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }} 
+          viewport={{ once: true }} 
         >
           <h2 className="text-[36px] font-semibold">{product.title}</h2>
           <p className="text-[16px] mt-[8px]">{product.description}</p>

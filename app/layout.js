@@ -53,13 +53,13 @@ const geistMono = Geist_Mono({
 
 export default function RootLayout({ children, metadata = {} }) {
   // Set default metadata if it's undefined
-  // const {
-  //   title = "Cart App",
-  //   description = "Shop for your favorite items in this easy-to-use cart app.",
-  //   keywords = "Cart App, nextjs seo complete checklist, nextjs seo tutorial",
-  //   openGraph = {},
-  //   twitter = {},
-  // } = metadata;
+  const {
+    title = "Ecommerss App",
+    description = "Shop for your favorite items in this easy-to-use cart app.",
+    keywords = "Cart App, nextjs seo complete checklist, nextjs seo tutorial",
+    openGraph = {},
+    twitter = {},
+  } = metadata;
 
   return (
     <html lang="en">

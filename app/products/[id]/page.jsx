@@ -1,5 +1,3 @@
-import ProductDetail from "@/components/product-details/ProductDetail";
-
 export async function generateMetadata({ params }) {
   const { id } = params;
 
@@ -14,12 +12,12 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: product.title || "Product Details",
         type: "article",
-        images: imageUrl,
+        images: [imageUrl], // ✅ Fix: Use an array
       },
       twitter: {
         title: product.title || "Product Details",
         description: product.description || "View product details",
-        images: imageUrl,
+        images: [imageUrl], // ✅ Fix: Use an array
         card: "summary_large_image",
       },
     };
@@ -31,29 +29,17 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: "Product Not Found",
         type: "article",
-        images: "https://via.placeholder.com/300",
+        images: ["https://via.placeholder.com/300"], // ✅ Fix: Use an array
       },
       twitter: {
         title: "Product Not Found",
         description: "The requested product could not be found.",
-        images: "https://via.placeholder.com/300",
+        images: ["https://via.placeholder.com/300"], // ✅ Fix: Use an array
         card: "summary_large_image",
       },
     };
   }
 }
 
-async function fetchProductDetails(id) {
-  const res = await fetch(`https://dummyjson.com/products/${id}`);
-  if (!res.ok) {
-    throw new Error("Failed to fetch product details");
-  }
-  return res.json();
-}
-
-// Render the client component and pass params
-export default function ProductPage({ params }) {
-  return <ProductDetail id={params.id} />;
-}
 
 

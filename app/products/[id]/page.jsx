@@ -1,11 +1,14 @@
 import ProductDetail from "@/components/product-details/ProductDetail";
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata({ params }, parent) {
   const { id } = params;
 
   try {
     const product = await fetchProductDetails(id);
-    const imageUrl = product.thumbnail || "/logo.webp"; // ✅ Correct path
+    const imageUrl = product.thumbnail || "https://via.placeholder.com/300";
+
+    // Extend parent metadata
+    const previousImages = (await parent).openGraph?.images || [];
 
     return {
       title: product.title || "Product Details",
@@ -14,13 +17,12 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: product.title || "Product Details",
         type: "article",
-        image: imageUrl, // ✅ Corrected
-        url: `https://yourdomain.com/products/${id}`, // Ensure correct URL
+        images: [imageUrl, ...previousImages], // Use "images" instead of "image"
       },
       twitter: {
         title: product.title || "Product Details",
         description: product.description || "View product details",
-        image: imageUrl, // ✅ Corrected
+        images: [imageUrl], // Twitter also expects an array
         card: "summary_large_image",
       },
     };
@@ -32,12 +34,12 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: "Product Not Found",
         type: "article",
-        image: "/logo.webp", // ✅ Corrected
+        images: ["https://via.placeholder.com/300"], // Use "images"
       },
       twitter: {
         title: "Product Not Found",
         description: "The requested product could not be found.",
-        image: "/logo.webp", // ✅ Corrected
+        images: ["https://via.placeholder.com/300"],
         card: "summary_large_image",
       },
     };
@@ -56,5 +58,6 @@ async function fetchProductDetails(id) {
 export default function ProductPage({ params }) {
   return <ProductDetail id={params.id} />;
 }
+
 
 

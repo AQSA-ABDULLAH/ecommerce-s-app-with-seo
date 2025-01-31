@@ -14,37 +14,33 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: { default: "ZTFR", template: "%s - ZTFR" },
-  description: "Learn how to optimize your Next.js website for SEO.",
-  keywords: "seo app, nextjs seo complete checklist, nextjs seo tutorial",
+  title: "Cart App",
+  description: "Shop for your favorite items in this easy-to-use cart app.",
   openGraph: {
-    title: { default: "ZTFR", template: "%s - ZTFR" },
-    description: "Learn how to optimize your Next.js website for SEO.",
-    images:
-      "https://ik.imagekit.io/dminhvu/assets/nextjs-seo/thumbnail.png?tr=f-png",
-  },
-  facebook: {
-    title: { default: "ZTFR", template: "%s - ZTFR" },
-    description: "Learn how to optimize your Next.js website for SEO.",
+    title: "Cart App",
+    description: "Shop for your favorite items in this easy-to-use cart app.",
     images: [
       {
-        url: "https://ik.imagekit.io/dminhvu/assets/nextjs-seo/thumbnail.png?tr=f-png",
+        url: "/assets/logo.webp",
         width: 1200,
         height: 630,
-        alt: "Next.js SEO Thumbnail",
+        alt: "Cart App Preview Image",
       },
     ],
+    url: "https://yourwebsite.com",
+    siteName: "Cart App",
   },
   twitter: {
     card: "summary_large_image",
-    title: { default: "ZTFR", template: "%s - ZTFR" },
-    description: "Learn how to optimize your Next.js website for SEO.",
+    site: "@yourtwitterhandle",
+    title: "Cart App",
+    description: "Shop for your favorite items in this easy-to-use cart app.",
     images: [
       {
-        url: "https://ik.imagekit.io/dminhvu/assets/nextjs-seo/thumbnail.png?tr=f-png",
+        url: "/assets/logo.webp",
         width: 1200,
         height: 630,
-        alt: "Next.js SEO Thumbnail",
+        alt: "Cart App Preview Image",
       },
     ],
   },
@@ -53,6 +49,26 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Open Graph meta tags */}
+        <meta property="og:title" content={metadata.openGraph.title} />
+        <meta property="og:description" content={metadata.openGraph.description} />
+        <meta property="og:image" content={metadata.openGraph.images[0].url} />
+        <meta property="og:url" content={metadata.openGraph.url} />
+        <meta property="og:site_name" content={metadata.openGraph.siteName} />
+        
+        {/* Twitter meta tags */}
+        <meta name="twitter:card" content={metadata.twitter.card} />
+        <meta name="twitter:site" content={metadata.twitter.site} />
+        <meta name="twitter:title" content={metadata.twitter.title} />
+        <meta name="twitter:description" content={metadata.twitter.description} />
+        <meta name="twitter:image" content={metadata.twitter.images[0].url} />
+
+        <meta name="description" content={metadata.description} />
+        <meta name="author" content="AQSA ABDULLAH" />
+      </head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#171717] text-[#EDEDED] font-style`}
       >

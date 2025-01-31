@@ -1,9 +1,4 @@
-"use client";
-
-import React, { useState, useEffect } from "react";
-import HeroSection from "@/components/product-details/HeroSection";
-import Main from "@/components/product-details/Main";
-import Footer from "@/components/footer/Footer";
+import ProductDetail from "@/components/product-details/ProductDetail";
 
 export async function generateMetadata({ params }) {
   const { id } = params;
@@ -56,41 +51,9 @@ async function fetchProductDetails(id) {
   return res.json();
 }
 
-const ProductDetail = ({ params }) => {
-  const [product, setProduct] = useState(null);
-  
-  const { id } = params;
+// Render the client component and pass params
+export default function ProductPage({ params }) {
+  return <ProductDetail id={params.id} />;
+}
 
-  useEffect(() => {
-    const loadProductDetails = async () => {
-      try {
-        const productData = await fetchProductDetails(id);
-        setProduct(productData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    if (id) {
-      loadProductDetails();
-    }
-  }, [id]);
-
-  if (!product) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <p>Loading...</p>
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      <HeroSection product={product} />
-      <Main product={product} />
-      <Footer />
-    </div>
-  );
-};
-
-export default ProductDetail;
 

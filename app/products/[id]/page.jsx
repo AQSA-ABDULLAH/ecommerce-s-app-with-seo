@@ -12,13 +12,13 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: product.title || "Product Details",
         type: "article",
-        image: imageUrl, // ✅ Fix: Use 'image' instead of 'images'
+        image: "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png", // ✅ Fix: Use 'image' instead of 'images'
         url: `https://ecommerce-s-app-with-seo.vercel.app/products/${id}`, // ✅ Make sure URL is correct
       },
       twitter: {
         title: product.title || "Product Details",
         description: product.description || "View product details",
-        image: imageUrl, // ✅ Fix: Use 'image' instead of 'images'
+        image: "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png", // ✅ Fix: Use 'image' instead of 'images'
         card: "summary_large_image",
       },
     };

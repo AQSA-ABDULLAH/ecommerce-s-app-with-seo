@@ -14,42 +14,42 @@ const geistMono = Geist_Mono({
 });
 
 
-export const metadata = {
-  title: { default: "Cart App", template: "%s - Cart App" },
-  description: "Shop for your favorite items in this easy-to-use cart app.",
-  keywords: "Cart App, nextjs seo complete checklist, nextjs seo tutorial",
-  openGraph: {
-    title: { default: "Cart App", template: "%s - Cart App" },
-    description: "Shop for your favorite items in this easy-to-use cart app.",
-    images:
-      "/assets/logo.webp",
-  },
-  facebook: {
-    title: { default: "Cart App", template: "%s - Cart App" },
-    description: "Shop for your favorite items in this easy-to-use cart app.",
-    images: [
-      {
-        url: "/assets/logo.webp",
-        width: 1200,
-        height: 630,
-        alt: "Cart App Preview Image",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: { default: "Cart App", template: "%s - Cart App" },
-    description: "Shop for your favorite items in this easy-to-use cart app.",
-    images: [
-      {
-        url: "/assets/logo.webp",
-        width: 1200,
-        height: 630,
-        alt: "Cart App Preview Image",
-      },
-    ],
-  },
-};
+// export const metadata = {
+//   title: { default: "Cart App", template: "%s - Cart App" },
+//   description: "Shop for your favorite items in this easy-to-use cart app.",
+//   keywords: "Cart App, nextjs seo complete checklist, nextjs seo tutorial",
+//   openGraph: {
+//     title: { default: "Cart App", template: "%s - Cart App" },
+//     description: "Shop for your favorite items in this easy-to-use cart app.",
+//     images:
+//       "/assets/logo.webp",
+//   },
+//   facebook: {
+//     title: { default: "Cart App", template: "%s - Cart App" },
+//     description: "Shop for your favorite items in this easy-to-use cart app.",
+//     images: [
+//       {
+//         url: "/assets/logo.webp",
+//         width: 1200,
+//         height: 630,
+//         alt: "Cart App Preview Image",
+//       },
+//     ],
+//   },
+//   twitter: {
+//     card: "summary_large_image",
+//     title: { default: "Cart App", template: "%s - Cart App" },
+//     description: "Shop for your favorite items in this easy-to-use cart app.",
+//     images: [
+//       {
+//         url: "/assets/logo.webp",
+//         width: 1200,
+//         height: 630,
+//         alt: "Cart App Preview Image",
+//       },
+//     ],
+//   },
+// };
 
 export default function RootLayout({ children, metadata = {} }) {
   // Set default metadata if it's undefined

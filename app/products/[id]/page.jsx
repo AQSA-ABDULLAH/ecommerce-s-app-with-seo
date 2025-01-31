@@ -5,7 +5,7 @@ export async function generateMetadata({ params }) {
 
   try {
     const product = await fetchProductDetails(id);
-    const imageUrl = product.thumbnail || "https://via.placeholder.com/300";
+    const imageUrl = product.thumbnail || "/logo.webp"; // ✅ Correct path
 
     return {
       title: product.title || "Product Details",
@@ -14,12 +14,13 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: product.title || "Product Details",
         type: "article",
-        image: "/assets/logo.webp",
+        image: imageUrl, // ✅ Corrected
+        url: `https://yourdomain.com/products/${id}`, // Ensure correct URL
       },
       twitter: {
         title: product.title || "Product Details",
         description: product.description || "View product details",
-        image: "/assets/logo.webp",
+        image: imageUrl, // ✅ Corrected
         card: "summary_large_image",
       },
     };
@@ -31,12 +32,12 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: "Product Not Found",
         type: "article",
-        image: "/assets/logo.webp",
+        image: "/logo.webp", // ✅ Corrected
       },
       twitter: {
         title: "Product Not Found",
         description: "The requested product could not be found.",
-        image: "/assets/logo.webp",
+        image: "/logo.webp", // ✅ Corrected
         card: "summary_large_image",
       },
     };

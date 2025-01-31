@@ -14,12 +14,12 @@ export async function generateMetadata({ params }) {
       openGraph: {
         title: product.title || "Product Details",
         type: "article",
-        image: product.thumbnail,
+        images: product.thumbnail,
       },
       twitter: {
         title: product.title || "Product Details",
         description: product.description || "View product details",
-        image: product.thumbnail,
+        images: product.thumbnail,
         card: "summary_large_image",
       },
     };

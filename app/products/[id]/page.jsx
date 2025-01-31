@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
 import HeroSection from "@/components/product-details/HeroSection";
 import Main from "@/components/product-details/Main";
 import Footer from "@/components/footer/Footer";
@@ -11,16 +10,40 @@ export async function generateMetadata({ params }) {
 
   try {
     const product = await fetchProductDetails(id);
+    const imageUrl = product.thumbnail || "https://via.placeholder.com/300";
+
     return {
       title: product.title || "Product Details",
       description: product.description || "View product details",
-      images: product.thumbnail || "Product Image"
+      keywords: `ecommerce, fake-store, next-ecommerce, ${product.category || "products"}`,
+      openGraph: {
+        title: product.title || "Product Details",
+        type: "article",
+        image: imageUrl,
+      },
+      twitter: {
+        title: product.title || "Product Details",
+        description: product.description || "View product details",
+        image: imageUrl,
+        card: "summary_large_image",
+      },
     };
   } catch (error) {
     return {
       title: "Product Not Found",
       description: "The requested product could not be found.",
-       images: "Product Image not found"
+      keywords: "not found, error",
+      openGraph: {
+        title: "Product Not Found",
+        type: "article",
+        image: "https://via.placeholder.com/300",
+      },
+      twitter: {
+        title: "Product Not Found",
+        description: "The requested product could not be found.",
+        image: "https://via.placeholder.com/300",
+        card: "summary_large_image",
+      },
     };
   }
 }

@@ -1,23 +1,13 @@
-"use client";
+// ❌ Remove "use client" from this file
+import ProductDetail from "@/components/product-details/ProductDetail";
 
-import React, { useState, useEffect } from "react";
-import Head from "next/head"; // Import Next.js Head component
-import HeroSection from "@/components/product-details/HeroSection";
-import Main from "@/components/product-details/Main";
-import Footer from "@/components/footer/Footer";
+export async function generateMetadata({ params }) {
+  const { id } = params;
 
-async function fetchProductDetails(id) {
-  const res = await fetch(`https://dummyjson.com/products/${id}`);
-  if (!res.ok) {
-    throw new Error("Failed to fetch product details");
-  }
-  return res.json();
-}
-
-const generateMetadata = async (id) => {
   try {
     const product = await fetchProductDetails(id);
     const imageUrl = product.thumbnail || "https://via.placeholder.com/300";
+
     return {
       title: product.title || "Product Details",
       description: product.description || "View product details",
@@ -25,12 +15,12 @@ const generateMetadata = async (id) => {
       openGraph: {
         title: product.title || "Product Details",
         type: "article",
-        images: [imageUrl],
+        image: imageUrl,
       },
       twitter: {
         title: product.title || "Product Details",
         description: product.description || "View product details",
-        images: [imageUrl],
+        image: imageUrl,
         card: "summary_large_image",
       },
     };
@@ -42,66 +32,32 @@ const generateMetadata = async (id) => {
       openGraph: {
         title: "Product Not Found",
         type: "article",
-        images: ["https://via.placeholder.com/300"],
+        image: "https://via.placeholder.com/300",
       },
       twitter: {
         title: "Product Not Found",
         description: "The requested product could not be found.",
-        images: ["https://via.placeholder.com/300"],
+        image: "https://via.placeholder.com/300",
         card: "summary_large_image",
       },
     };
   }
-};
+}
 
-const ProductDetail = ({ params }) => {
-  const [product, setProduct] = useState(null);
-
-  // Unwrap params using React.use
-  const { id } = React.use(params); // Correctly unwrapping `params`
-
-  useEffect(() => {
-    const loadProductDetails = async () => {
-      try {
-        const productData = await fetchProductDetails(id);
-        setProduct(productData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    if (id) {
-      loadProductDetails();
-    }
-  }, [id]);
-
-  useEffect(() => {
-    const setMetadata = async () => {
-      if (id) {
-        const metadata = await generateMetadata(id);
-        // Update the page metadata dynamically using Next.js Head component
-        document.title = metadata.title;
-      }
-    };
-
-    setMetadata();
-  }, [id]);
-
-  if (!product) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <p>Loading...</p>
-      </div>
-    );
+async function fetchProductDetails(id) {
+  const res = await fetch(`https://dummyjson.com/products/${id}`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch product details");
   }
+  return res.json();
+}
 
-  return (
-    <div>
-      <HeroSection product={product} />
-      <Main product={product} />
-      <Footer />
-    </div>
-  );
-};
+// Render the client component and pass params
+export default function ProductPage({ params }) {
+  return <ProductDetail id={params.id} />;
+}
 
-export default ProductDetail;
+
+
+
 

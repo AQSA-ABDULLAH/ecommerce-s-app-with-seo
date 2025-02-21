@@ -9,7 +9,7 @@ const Footer = () => {
         <a href="/" className="text-[#DA0037] text-[36px] font-bold">
           Next Cart
         </a>
-        <p className="mt-[8px] text-[16px] text-[#CBD5E0]">Developed by Saqib Aziz.</p>
+        <p className="mt-[8px] text-[16px] text-[#CBD5E0]">Developed by AQSA ABDULLAH.</p>
 
         {/* Social Media Links */}
         <div className="flex space-x-4 mt-[8px] pt-[16px]">
@@ -75,7 +75,7 @@ const Footer = () => {
         <div className="mt-8 flex flex-wrap justify-between items-center pt-4">
           <p className="text-[14px]">
             Copyright © 2023 All rights reserved. Designed and developed by{" "}
-            <span className="text-[#DA0037]">Saqib.</span>
+            <span className="text-[#DA0037]">AQSA.</span>
           </p>
           <div className="flex space-x-4 text-[16px]">
             <a href="/" className="hover:underline">
